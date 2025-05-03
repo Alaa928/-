@@ -33,7 +33,7 @@ services:
       #   value: "YOUR_CLOUDFLARE_ACCOUNT_ID"
 
   # PostgreSQL Database
-  - type: psql
+  - type: postgres
     name: research-db
     plan: free # Start with the free plan
     region: frankfurt # Match the web service region
