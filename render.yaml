@@ -1,0 +1,42 @@
+services:
+  # Web Service for the Flask App
+  - type: web
+    name: research-site-web
+    env: python
+    plan: free # Start with the free plan
+    region: frankfurt # Or choose a region closer to your users
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "gunicorn src.main:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0 # Match the Python version used
+      - key: FLASK_SECRET_KEY
+        generateValue: true # Let Render generate a secure secret key
+      - key: DATABASE_URL
+        fromDatabase:
+          name: research-db # Reference the database service below
+          property: connectionString
+      - key: ADMIN_USER
+        value: admin # Default admin username
+      - key: ADMIN_PASS_HASH
+        value: "pbkdf2:sha256:600000$zQ8yV4xG7nL9wK3f$1a9f8b7c6d5e4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b" # Hash for 'password' - CHANGE THIS IN PRODUCTION!
+      # --- Cloudflare R2/S3 Credentials - SET THESE SECURELY IN RENDER DASHBOARD ---
+      - key: S3_ENDPOINT_URL
+        value: "YOUR_R2_ENDPOINT_URL" # e.g., https://<accountid>.r2.cloudflarestorage.com
+      - key: S3_ACCESS_KEY_ID
+        sync: false # Mark as secret, set in Render dashboard
+      - key: S3_SECRET_ACCESS_KEY
+        sync: false # Mark as secret, set in Render dashboard
+      - key: S3_BUCKET_NAME
+        value: "YOUR_R2_BUCKET_NAME"
+      # - key: CLOUDFLARE_ACCOUNT_ID # Uncomment and set if needed for URL construction
+      #   value: "YOUR_CLOUDFLARE_ACCOUNT_ID"
+
+  # PostgreSQL Database
+  - type: psql
+    name: research-db
+    plan: free # Start with the free plan
+    region: frankfurt # Match the web service region
+    ipAllowList: [] # Allow connections from anywhere (Render services automatically connect)
+    # version: "14" # Optional: specify PostgreSQL version
+
