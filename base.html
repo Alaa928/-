@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}مستودع الأبحاث{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Add custom styles here if needed */
+        body {
+            font-family: 'Cairo', sans-serif; /* Example using a Google Font */
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <nav class="bg-white shadow-md p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{{ url_for('main.index') }}" class="text-xl font-bold text-blue-600">مستودع الأبحاث</a>
+            <div>
+                <a href="{{ url_for("main.index") }}" class="text-gray-600 hover:text-blue-600 px-3">الرئيسية</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 px-3">تصفح</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 px-3">عن الموقع</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 px-3">تبرع</a>
+                <!-- Add link to admin panel if user is admin -->
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-6 min-h-screen">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 مستودع الأبحاث. جميع الحقوق محفوظة.</p>
+            <a href="#" class="text-gray-400 hover:text-white px-2">سياسة الخصوصية</a>
+            <a href="#" class="text-gray-400 hover:text-white px-2">اتصل بنا</a>
+        </div>
+    </footer>
+
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>
+

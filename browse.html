@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}تصفح الأبحاث - مستودع الأبحاث{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-8">تصفح الأبحاث والمقالات والكتب</h1>
+
+<!-- Search and Filter Bar -->
+<div class="bg-white p-4 rounded-lg shadow-md mb-8">
+    <form action="#" method="get" class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+        <div class="md:col-span-2">
+            <label for="search_query" class="block text-sm font-medium text-gray-700 mb-1">بحث بالكلمات المفتاحية</label>
+            <input type="text" id="search_query" name="query" placeholder="عنوان، مؤلف، كلمات مفتاحية..." class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <div>
+            <label for="content_type" class="block text-sm font-medium text-gray-700 mb-1">نوع المحتوى</label>
+            <select id="content_type" name="type" class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 bg-white">
+                <option value="all">الكل</option>
+                <option value="research">بحث</option>
+                <option value="article">مقال</option>
+                <option value="book">كتاب</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition duration-200">تطبيق الفلاتر</button>
+        </div>
+    </form>
+</div>
+
+<!-- Results Area -->
+<div class="space-y-6">
+    <!-- Example Result Item - Repeat dynamically -->
+    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-200 flex flex-col md:flex-row md:items-start gap-4">
+        <div class="flex-grow">
+            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-medium">بحث</span> <!-- Or مقال, كتاب -->
+            <h3 class="text-xl font-bold mt-1 mb-2"><a href="#" class="text-blue-600 hover:underline">عنوان بحث تجريبي 1</a></h3>
+            <p class="text-gray-600 mb-3 line-clamp-3">هذا وصف موجز للبحث التجريبي الأول. يهدف هذا البحث إلى استكشاف تأثير العوامل المختلفة على...</p>
+            <div class="text-sm text-gray-500">
+                <span>المؤلف: اسم المؤلف</span> | <span>التاريخ: 01 مايو 2025</span> | <span>الموضوع: علوم الحاسوب</span>
+            </div>
+        </div>
+        <div class="flex-shrink-0 mt-4 md:mt-0">
+            <a href="#" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition duration-200 inline-block">تحميل PDF</a>
+        </div>
+    </div>
+    <!-- End Example Result Item -->
+
+    <!-- Example Result Item 2 -->
+    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-200 flex flex-col md:flex-row md:items-start gap-4">
+        <div class="flex-grow">
+            <span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded font-medium">مقال</span>
+            <h3 class="text-xl font-bold mt-1 mb-2"><a href="#" class="text-blue-600 hover:underline">عنوان مقال تجريبي</a></h3>
+            <p class="text-gray-600 mb-3 line-clamp-3">يناقش هذا المقال آخر التطورات في مجال معين، ويقدم رؤى جديدة حول...</p>
+            <div class="text-sm text-gray-500">
+                <span>المؤلف: اسم الكاتب</span> | <span>التاريخ: 30 أبريل 2025</span> | <span>الموضوع: اقتصاد</span>
+            </div>
+        </div>
+        <div class="flex-shrink-0 mt-4 md:mt-0">
+            <a href="#" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition duration-200 inline-block">قراءة المقال</a>
+        </div>
+    </div>
+    <!-- End Example Result Item 2 -->
+
+    <!-- Placeholder for Ads -->
+    <div class="my-8 p-4 bg-gray-200 text-center text-gray-500 rounded">
+        (مساحة إعلانية)
+    </div>
+
+    <!-- Pagination (Example) -->
+    <nav class="mt-8 flex justify-center" aria-label="Pagination">
+        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+            <span class="sr-only">السابق</span>
+            <!-- Heroicon name: solid/chevron-right -->
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+        </a>
+        <a href="#" aria-current="page" class="z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium"> 1 </a>
+        <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"> 2 </a>
+        <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"> 3 </a>
+        <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700"> ... </span>
+        <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"> 8 </a>
+        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+            <span class="sr-only">التالي</span>
+            <!-- Heroicon name: solid/chevron-left -->
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+        </a>
+    </nav>
+
+</div>
+
+{% endblock %}
+

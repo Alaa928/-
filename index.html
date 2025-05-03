@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}الصفحة الرئيسية - مستودع الأبحاث{% endblock %}
+
+{% block content %}
+<div class="text-center mb-12">
+    <h1 class="text-4xl font-bold mb-4">مرحباً بك في مستودع الأبحاث</h1>
+    <p class="text-lg text-gray-600">منصة لمشاركة وقراءة الأبحاث والمقالات والكتب بحرية</p>
+</div>
+
+<div class="mb-12">
+    <form action="#" method="get" class="max-w-2xl mx-auto">
+        <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden shadow-sm">
+            <input type="text" name="query" placeholder="ابحث عن بحث، مقال، أو كتاب..." class="w-full p-3 border-0 focus:ring-0 text-gray-700">
+            <button type="submit" class="bg-blue-600 text-white p-3 px-6 hover:bg-blue-700 transition duration-200">بحث</button>
+        </div>
+    </form>
+</div>
+
+<div class="mb-12">
+    <h2 class="text-2xl font-bold mb-6 text-center">أحدث الإضافات</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Example Card - Replace with dynamic data later -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-200">
+            <h3 class="text-xl font-bold mb-2"><a href="#" class="text-blue-600 hover:underline">عنوان بحث تجريبي 1</a></h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">هذا وصف موجز للبحث التجريبي الأول. يهدف هذا البحث إلى استكشاف تأثير العوامل المختلفة على...</p>
+            <div class="text-sm text-gray-500">
+                <span>المؤلف: اسم المؤلف</span> | <span>التاريخ: 01 مايو 2025</span>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-200">
+            <h3 class="text-xl font-bold mb-2"><a href="#" class="text-blue-600 hover:underline">عنوان مقال تجريبي</a></h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">يناقش هذا المقال آخر التطورات في مجال معين، ويقدم رؤى جديدة حول...</p>
+            <div class="text-sm text-gray-500">
+                <span>المؤلف: اسم الكاتب</span> | <span>التاريخ: 30 أبريل 2025</span>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-200">
+            <h3 class="text-xl font-bold mb-2"><a href="#" class="text-blue-600 hover:underline">عنوان كتاب تجريبي</a></h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">يقدم هذا الكتاب مقدمة شاملة لموضوع معين، ويغطي الجوانب النظرية والتطبيقية...</p>
+            <div class="text-sm text-gray-500">
+                <span>المؤلف: اسم المؤلف</span> | <span>التاريخ: 28 أبريل 2025</span>
+            </div>
+        </div>
+        <!-- End Example Card -->
+    </div>
+    <div class="text-center mt-6">
+        <a href="#" class="text-blue-600 hover:underline">عرض جميع الإضافات &rarr;</a>
+    </div>
+</div>
+
+<!-- Placeholder for Ads -->
+<div class="my-8 p-4 bg-gray-200 text-center text-gray-500 rounded">
+    (مساحة إعلانية)
+</div>
+
+{% endblock %}
+

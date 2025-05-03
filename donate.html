@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}دعم الموقع - مستودع الأبحاث{% endblock %}
+
+{% block content %}
+<div class="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center">دعم مستودع الأبحاث</h1>
+    
+    <div class="prose prose-lg max-w-none text-gray-700 mb-8">
+        <p>شكراً لاهتمامك بدعم مستودع الأبحاث! نسعى لتوفير منصة مجانية ومفتوحة للوصول إلى الأبحاث والمقالات والكتب القيمة.</p>
+        <p>تساعدنا تبرعاتكم السخية على تغطية تكاليف التشغيل (مثل الاستضافة، الصيانة، والتطوير المستمر) وضمان بقاء المحتوى متاحاً للجميع مجاناً.</p>
+        <p>يمكنك المساهمة في استمرارية هذا المشروع من خلال التبرع بالمبلغ الذي تراه مناسباً. كل مساهمة، مهما كانت صغيرة، تحدث فرقاً كبيراً.</p>
+    </div>
+
+    <div class="text-center space-y-4">
+        <h2 class="text-xl font-semibold mb-4">اختر طريقة التبرع:</h2>
+        
+        <!-- Placeholder for Donation Buttons/Links -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="#" class="bg-blue-600 text-white py-3 px-8 rounded hover:bg-blue-700 transition duration-200 text-lg font-semibold inline-block w-full sm:w-auto">
+                التبرع عبر PayPal (مثال)
+            </a>
+            <a href="#" class="bg-green-600 text-white py-3 px-8 rounded hover:bg-green-700 transition duration-200 text-lg font-semibold inline-block w-full sm:w-auto">
+                التبرع عبر Stripe (مثال)
+            </a>
+        </div>
+        <p class="text-gray-500 text-sm mt-4">(ملاحظة: سيتم تفعيل روابط التبرع الفعلية لاحقاً)</p>
+    </div>
+
+</div>
+{% endblock %}
+

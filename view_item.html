@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.title }} - مستودع الأبحاث{% endblock %}
+
+{% block content %}
+{# Dummy data for template structure - Replace with actual data from backend #}
+{% set item = {
+    'type': 'بحث', # or 'مقال', 'كتاب'
+    'title': 'عنوان بحث تجريبي مفصل', 
+    'author': 'اسم المؤلف الرئيسي', 
+    'date': '01 مايو 2025', 
+    'subject': 'علوم الحاسوب المتقدمة', 
+    'abstract': 'هذا هو ملخص مفصل للبحث التجريبي. يتناول هذا البحث بعمق التقنيات الحديثة في مجال الذكاء الاصطناعي وتأثيرها على تطوير البرمجيات. يستعرض البحث الأدبيات السابقة ويقدم منهجية جديدة لتحليل البيانات الضخمة بكفاءة أعلى. تم تطبيق المنهجية على مجموعة بيانات واقعية وأظهرت النتائج تحسناً ملحوظاً مقارنة بالطرق التقليدية. يناقش البحث أيضاً التحديات المستقبلية والآفاق البحثية الممكنة في هذا المجال الحيوي.',
+    'keywords': ['ذكاء اصطناعي', 'بيانات ضخمة', 'تعلم الآلة', 'تطوير البرمجيات'],
+    'download_url': '#'
+} %}
+
+<article class="bg-white p-8 rounded-lg shadow-md">
+    <div class="mb-6 pb-4 border-b border-gray-200">
+        <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded font-medium">{{ item.type }}</span>
+        <h1 class="text-3xl font-bold mt-2 mb-3">{{ item.title }}</h1>
+        <div class="text-md text-gray-600 space-x-4 space-x-reverse">
+            <span><strong>المؤلف:</strong> {{ item.author }}</span>
+            <span><strong>تاريخ النشر:</strong> {{ item.date }}</span>
+            <span><strong>الموضوع:</strong> {{ item.subject }}</span>
+        </div>
+    </div>
+
+    <div class="prose prose-lg max-w-none mb-8 text-gray-700">
+        <h2 class="text-xl font-semibold mb-2">الملخص</h2>
+        <p>{{ item.abstract }}</p>
+    </div>
+
+    {% if item.keywords %}
+    <div class="mb-8">
+        <h3 class="text-lg font-semibold mb-2">الكلمات المفتاحية:</h3>
+        <div class="flex flex-wrap gap-2">
+            {% for keyword in item.keywords %}
+            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">{{ keyword }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-gray-200">
+        <a href="{{ item.download_url }}" class="w-full md:w-auto bg-green-600 text-white text-center py-3 px-6 rounded hover:bg-green-700 transition duration-200 text-lg font-semibold">تحميل الملف (PDF)</a>
+        
+        <!-- Donation Prompt -->
+        <div class="text-center md:text-right">
+            <p class="text-gray-600 mb-1">هل وجدت هذا المحتوى مفيداً؟</p>
+            <a href="#" class="text-blue-600 hover:underline font-medium">ادعم الموقع للمزيد من المحتوى المجاني</a>
+        </div>
+    </div>
+
+</article>
+
+<!-- Placeholder for Ads -->
+<div class="my-8 p-4 bg-gray-200 text-center text-gray-500 rounded">
+    (مساحة إعلانية)
+</div>
+
+{% endblock %}
+
