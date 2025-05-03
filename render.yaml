@@ -30,7 +30,7 @@ services:
         value: "your-r2-bucket-name"
 
   # PostgreSQL Database Service
-  - type: postgres
+  - type: postgresSQL
     name: research-db
     plan: free
     region: frankfurt
